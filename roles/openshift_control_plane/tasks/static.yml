@@ -24,12 +24,12 @@
   - apiserver.yaml
   - controller.yaml
 
-- name: Update master static pods
+- name: Update master static pods - hack
   yedit:
     src: "{{ mktemp.stdout }}/{{ item }}"
     edits:
     - key: spec.containers[0].image
-      value: "registry.reg-aws.openshift.com:443/openshift3/ose-control-plane:v3.10-0.22.0"
+      value: "registry.reg-aws.openshift.com:443/openshift3/ose-control-plane:v3.10.0-0.22.0"
   with_items:
   - apiserver.yaml
   - controller.yaml
